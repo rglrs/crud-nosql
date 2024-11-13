@@ -10,8 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
+    "@material-tailwind/react": "^2.1.10",
+    "auto-prefixer": "^0.4.2",
+    "autoprefixer": "^10.4.20",
+    "heroicons": "^2.1.5",
+    "postcss": "^8.4.49",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.14"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
