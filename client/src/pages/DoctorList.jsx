@@ -421,6 +421,21 @@ export function DoctorList() {
                 }
               />
             </div>
+            <div className="mb-4">
+              <Input
+                label="Street"
+                value={selectedDoctor?.address.street || ""}
+                onChange={(e) =>
+                  setSelectedDoctor({
+                    ...selectedDoctor,
+                    address: {
+                      ...selectedDoctor.address,
+                      street: e.target.value,
+                    },
+                  })
+                }
+              />
+            </div>
             <DialogFooter>
               <Button variant="text" color="red" onClick={handleModalClose}>
                 Cancel
