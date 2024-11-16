@@ -1,12 +1,16 @@
 require("dotenv").config(); // Menggunakan dotenv untuk mengakses variabel lingkungan
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors"); 
 const Doctor = require("./models/DoctorSchema"); // Pastikan model DoctorSchema sudah sesuai
 
 const app = express();
 
 // Middleware untuk parsing JSON request body
 app.use(express.json());
+
+// Middleware untuk mengizinkan CORS
+app.use(cors());
 
 // Mengambil URI MongoDB dari variabel lingkungan
 const dbURI = process.env.MONGO_URI;
