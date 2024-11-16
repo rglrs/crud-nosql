@@ -1,7 +1,7 @@
 require("dotenv").config(); // Menggunakan dotenv untuk mengakses variabel lingkungan
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors"); 
+const cors = require("cors");
 const Doctor = require("./models/DoctorSchema"); // Pastikan model DoctorSchema sudah sesuai
 
 const app = express();
@@ -95,6 +95,26 @@ app.put("/doctor/:id", async (req, res) => {
     res
       .status(500)
       .json({ message: "Error updating doctor", error: error.message });
+  }
+});
+
+// Fungsi untuk menghapus data dokter berdasarkan ID
+app.delete("/doctor/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedDoctor = await Doctor.findByIdAndDelete(id);
+
+    if (!deletedDoctor) {
+      return res.status(404).json({ message: "Doctor not found" });
+    }
+
+    res.status(200).json({ message: "Doctor deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting doctor:", error);
+    res
+      .status(500)
+      .json({ message: "Error deleting doctor", error: error.message });
   }
 });
 
