@@ -423,8 +423,6 @@ export function DoctorList() {
             </div>
             <div className="mb-4">
               <Input
-                label="Street"
-                value={selectedDoctor?.address.street || ""}
                 onChange={(e) =>
                   setSelectedDoctor({
                     ...selectedDoctor,
